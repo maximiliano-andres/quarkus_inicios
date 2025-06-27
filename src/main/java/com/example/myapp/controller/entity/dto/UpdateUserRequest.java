@@ -1,4 +1,4 @@
-package com.example.myapp.entity.dto;
+package com.example.myapp.controller.entity.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.*;

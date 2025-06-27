@@ -2,11 +2,11 @@ package com.example.myapp.service.interfaces;
 
 import java.util.List;
 
-import com.example.myapp.entity.dto.AuthResponse;
-import com.example.myapp.entity.dto.CreateUserRequest;
-import com.example.myapp.entity.dto.LoginRequest;
-import com.example.myapp.entity.dto.UpdateUserRequest;
-import com.example.myapp.entity.dto.UserResponse;
+import com.example.myapp.controller.entity.dto.AuthResponse;
+import com.example.myapp.controller.entity.dto.CreateUserRequest;
+import com.example.myapp.controller.entity.dto.LoginRequest;
+import com.example.myapp.controller.entity.dto.UpdateUserRequest;
+import com.example.myapp.controller.entity.dto.UserResponse;
 
 public interface UserService {
 

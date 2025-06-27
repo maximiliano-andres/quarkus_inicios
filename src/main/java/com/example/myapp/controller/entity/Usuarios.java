@@ -1,9 +1,11 @@
-package com.example.myapp.entity;
+package com.example.myapp.controller.entity;
 
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.GenericGenerator;
-import com.example.myapp.entity.enumUser.UserRole;
+
+import com.example.myapp.controller.entity.enumUser.UserRole;
+
 import jakarta.persistence.*;
 import lombok.*;
 

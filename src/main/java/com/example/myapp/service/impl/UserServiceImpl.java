@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import com.example.myapp.entity.Usuarios;
-import com.example.myapp.entity.dto.AuthResponse;
-import com.example.myapp.entity.dto.CreateUserRequest;
-import com.example.myapp.entity.dto.LoginRequest;
-import com.example.myapp.entity.dto.UpdateUserRequest;
-import com.example.myapp.entity.dto.UserResponse;
+import com.example.myapp.controller.entity.Usuarios;
+import com.example.myapp.controller.entity.dto.AuthResponse;
+import com.example.myapp.controller.entity.dto.CreateUserRequest;
+import com.example.myapp.controller.entity.dto.LoginRequest;
+import com.example.myapp.controller.entity.dto.UpdateUserRequest;
+import com.example.myapp.controller.entity.dto.UserResponse;
 import com.example.myapp.exception.InvalidCredentialsException;
 import com.example.myapp.exception.UserAlreadyExistsException;
 import com.example.myapp.exception.UserNotFoundException;
@@ -110,15 +110,34 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String id) {
         log.debug("Deleting user with ID: {}", id);
         
-        Usuarios user = userRepository.findByIdOptional(id)
+        Usuarios user = userRepository.findByIdOptional(id) // Buscar usuario por ID
             .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
         
-        // Soft delete
-        user.setActive(false);
-        userRepository.persist(user);
+        userRepository.delete(user); // eliminar el usuario
         
         log.info("User soft deleted with ID: {}", id);
     }
+
+    /*
+
+    //activa o desactiva el campo Activate
+    @Override
+    @Transactional
+    public void deleteUser(String id) {
+        log.debug("Deleting user with ID: {}", id);
+        
+        Usuarios user = userRepository.findByIdOptional(id) // Buscar usuario por ID
+            .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
+        
+        // Soft delete
+        user.setActive(false); // activar campo de usuario
+        
+        userRepository.persist(user); // Persistir el cambio
+        
+        log.info("User soft deleted with ID: {}", id);
+    }
+    
+     */
     
     @Override
     public List<UserResponse> getAllUsers(int page, int size) {
@@ -153,13 +172,16 @@ public class UserServiceImpl implements UserService {
             user.getRole().getValue()
         );
         
-        log.info("User authenticated successfully: {}", user.getEmail());
+        log.info("Usuario Autentificado por email: {}", user.getEmail());
         
-        return AuthResponse.builder()
+        AuthResponse authResponse = AuthResponse.builder()
             .token(token)
             .expiresIn(jwtExpiration)
             .user(userMapper.toResponse(user))
             .build();
+
+        log.info(authResponse.toString());
+        return authResponse ;
     }
 
 }

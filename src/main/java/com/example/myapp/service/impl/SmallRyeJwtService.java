@@ -25,7 +25,7 @@ public class SmallRyeJwtService implements JwtService{
     @Override
     public String generateToken(String userId, String email, String role){
         try {
-            PrivateKey privateKey = KeyUtils.readPrivateKey("/META-INF/resources/privateKey.pem"); // Ruta al archivo de clave privada PEM
+            PrivateKey privateKey = KeyUtils.readPrivateKey("privateKey.pem"); // Ruta al archivo de clave privada PEM
             
             return Jwt.issuer(issuer) // Establece el emisor del token
                 .upn(email) // Establece el email del usuario como el nombre de usuario principal (UPN)
