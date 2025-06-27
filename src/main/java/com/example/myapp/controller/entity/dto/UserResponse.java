@@ -1,8 +1,8 @@
-package com.example.myapp.entity.dto;
+package com.example.myapp.controller.entity.dto;
 
 import java.time.LocalDateTime;
 
-import com.example.myapp.entity.enumUser.UserRole;
+import com.example.myapp.controller.entity.enumUser.UserRole;
 
 import lombok.*;
 

@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import com.example.myapp.entity.Usuarios;
-import com.example.myapp.entity.dto.AuthResponse;
-import com.example.myapp.entity.dto.CreateUserRequest;
-import com.example.myapp.entity.dto.LoginRequest;
-import com.example.myapp.entity.dto.UpdateUserRequest;
-import com.example.myapp.entity.dto.UserResponse;
+import com.example.myapp.controller.entity.Usuarios;
+import com.example.myapp.controller.entity.dto.AuthResponse;
+import com.example.myapp.controller.entity.dto.CreateUserRequest;
+import com.example.myapp.controller.entity.dto.LoginRequest;
+import com.example.myapp.controller.entity.dto.UpdateUserRequest;
+import com.example.myapp.controller.entity.dto.UserResponse;
 import com.example.myapp.exception.InvalidCredentialsException;
 import com.example.myapp.exception.UserAlreadyExistsException;
 import com.example.myapp.exception.UserNotFoundException;

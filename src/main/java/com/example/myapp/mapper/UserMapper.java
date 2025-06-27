@@ -1,8 +1,8 @@
 package com.example.myapp.mapper;
 
-import com.example.myapp.entity.Usuarios;
-import com.example.myapp.entity.dto.CreateUserRequest;
-import com.example.myapp.entity.dto.UserResponse;
+import com.example.myapp.controller.entity.Usuarios;
+import com.example.myapp.controller.entity.dto.CreateUserRequest;
+import com.example.myapp.controller.entity.dto.UserResponse;
 
 import jakarta.enterprise.context.ApplicationScoped;
 

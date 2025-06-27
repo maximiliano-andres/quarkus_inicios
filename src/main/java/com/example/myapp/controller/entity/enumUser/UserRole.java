@@ -1,4 +1,4 @@
-package com.example.myapp.entity.enumUser;
+package com.example.myapp.controller.entity.enumUser;
 
 public enum UserRole {
 

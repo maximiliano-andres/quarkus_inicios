@@ -2,7 +2,9 @@ package com.example.myapp.repository;
 
 import java.util.List;
 import java.util.Optional;
-import com.example.myapp.entity.Usuarios;
+
+import com.example.myapp.controller.entity.Usuarios;
+
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import io.quarkus.panache.common.Page;
 import jakarta.enterprise.context.ApplicationScoped;
